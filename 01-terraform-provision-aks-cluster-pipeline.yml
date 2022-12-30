@@ -66,6 +66,7 @@ stages:
     jobs:
       - deployment: DeployAKSClusters
         displayName: DeployDEVAKSClusters
+        environment: $(DEV_ENVIORNMENT)
         pool: "ubuntu-latest"
         strategy:
          runOnce:
