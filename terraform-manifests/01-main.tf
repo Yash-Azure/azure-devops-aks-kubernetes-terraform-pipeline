@@ -49,3 +49,6 @@ resource "random_pet" "aksrandom" {
 
 }
 
+provider "azuread" {
+  # Configuration options
+}
