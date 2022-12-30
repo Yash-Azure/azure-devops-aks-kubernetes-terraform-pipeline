@@ -9,6 +9,7 @@ stages:
   - stage: TerraformValidatee
     jobs:
       - job: TerraformValidateJobb
+        displayName: Tfjob
         continueOnError: false
         steps:
 ## Step-1: Publish Artifacts to Pipeline (Pipeline artifacts provide a way to share files between stages in a pipeline or between different pipelines. )
