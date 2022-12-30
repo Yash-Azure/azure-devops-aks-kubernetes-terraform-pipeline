@@ -5,7 +5,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
- DEV_ENVIORNMENT: 'dev'
+ DEV_ENVIRONMENT: 'dev'
  qa_ENVIORNMENT: 'qa'
 
 # Stage-1: Terraform Validate Stage
@@ -99,6 +99,7 @@ stages:
                   publishPlanResults: '$(DEV_ENVIRONMENT)-$(Build.BuildId).out'
                   environmentServiceName: "terraform-aks-azurerm-svc-con"
               - task: TerraformCLI@0
+                displayName: Terraform Apply
                 inputs:
                   command: 'apply'
                   workingDirectory: '$(Pipeline.Workspace)/terraform-manifests-out'
