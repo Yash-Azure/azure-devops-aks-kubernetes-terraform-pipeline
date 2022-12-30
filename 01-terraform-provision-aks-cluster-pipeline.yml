@@ -60,7 +60,7 @@ stages:
 ## Step-4: Terraform Plan (Create Plan)
 ## Step-5: Terraform Apply (Use the plan created in previous step)
 
-  - stage:
+  - stage: Deploy AKS
     jobs:
       - deployment: DeployAKSClusters
         displayName: DeployDEVAKSClusters
@@ -94,7 +94,7 @@ stages:
                 inputs:
                   command: 'plan'
                   workingDirectory: '$(Pipeline.Workspace)/terraform-manifests-out'
-                  commandOptions: '-var ssh_public_key=$(sshkey.secureFilePath) -var environment=dev -out $(Pipeline.Workspace)/terraform-manifests-out/$(DEV_ENVIRONMENT)-$(Build.BuildId).out'
+                  commandOptions: '-var ssh_public_key=$(sshkey.secureFilePath) -var environment=$(DEV_ENVIRONMENT) -out $(Pipeline.Workspace)/terraform-manifests-out/$(DEV_ENVIRONMENT)-$(Build.BuildId).out'
                   allowTelemetryCollection: false
                   publishPlanResults: '$(DEV_ENVIRONMENT)-$(Build.BuildId).out'
                   environmentServiceName: "terraform-aks-azurerm-svc-con"
