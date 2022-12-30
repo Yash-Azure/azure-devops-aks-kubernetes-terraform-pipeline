@@ -60,7 +60,7 @@ stages:
 ## Step-4: Terraform Plan (Create Plan)
 ## Step-5: Terraform Apply (Use the plan created in previous step)
 
-  - stage: Deploy AKS
+  - stage: Deploy_AKS
     jobs:
       - deployment: DeployAKSClusters
         displayName: DeployDEVAKSClusters
