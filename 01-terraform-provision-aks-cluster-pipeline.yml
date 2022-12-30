@@ -5,10 +5,8 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-- name: DEV_ENVIORNMENT
-  value: dev
-- name: QA_ENVIORNMENT
-  value: qa
+ DEV_ENVIORNMENT: 'dev'
+ qa_ENVIORNMENT: 'qa'
 
 # Stage-1: Terraform Validate Stage
 stages:
