@@ -64,7 +64,7 @@ stages:
     jobs:
       - deployment: DeployAKSClusters
         displayName: DeployDEVAKSClusters
-        environment: $(DEV_ENVIORNMENT)
+        environment: $(DEV_ENVIRONMENT)
         pool:
          vmImage: "ubuntu-latest"
         strategy:
@@ -87,7 +87,7 @@ stages:
                   backendAzureRmResourceGroupName: 'ask-rg'
                   backendAzureRmStorageAccountName: 'dsgdfswdevops'
                   backendAzureRmContainerName: 'tffiles'
-                  backendAzureRmKey: 'aks-$(DEV_ENVIORNMENT).tfstate'
+                  backendAzureRmKey: 'aks-$(DEV_ENVIRONMENT).tfstate'
                   allowTelemetryCollection: false
               - task: TerraformCLI@0
                 displayName: Terraform plan
@@ -96,7 +96,6 @@ stages:
                   workingDirectory: '$(Pipeline.Workspace)/terraform-manifests-out'
                   commandOptions: '-var ssh_public_key=$(sshkey.secureFilePath) -var environment=$(DEV_ENVIRONMENT) -out $(Pipeline.Workspace)/terraform-manifests-out/$(DEV_ENVIRONMENT)-$(Build.BuildId).out'
                   allowTelemetryCollection: false
-                  publishPlanResults: '$(DEV_ENVIRONMENT)-$(Build.BuildId).out'
                   environmentServiceName: "terraform-aks-azurerm-svc-con"
               - task: TerraformCLI@0
                 displayName: Terraform Apply
