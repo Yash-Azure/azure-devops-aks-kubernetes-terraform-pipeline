@@ -96,7 +96,7 @@ stages:
                 inputs:
                   command: 'plan'
                   workingDirectory: '$(Pipeline.Workspace)/terraform-manifests-out'
-                  commandOptions: '-var ssh_public_key=$(sshkey.secureFilePath) -var environment=$(DEV_ENVIRONMENT) -out $(Pipeline.Workspace)/terraform-manifests-out/$(DEV_ENVIRONMENT)-$(Build.BuildId).out'
+                  commandOptions: '-var ssh_public_key=$(sshkey.secureFilePath) -var environment=dev -out $(Pipeline.Workspace)/terraform-manifests-out/$(DEV_ENVIRONMENT)-$(Build.BuildId).out'
                   allowTelemetryCollection: false
                   publishPlanResults: '$(DEV_ENVIRONMENT)-$(Build.BuildId).out'
                   environmentServiceName: "terraform-aks-azurerm-svc-con"
