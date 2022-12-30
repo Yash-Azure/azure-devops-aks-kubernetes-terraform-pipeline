@@ -6,7 +6,7 @@ pool:
 
 # Stage-1: Terraform Validate Stage
 stages:
-  - stage: TerraformValidate
+  - stage: TerraformValidatee
     jobs:
       - job: TerraformValidateJob
         continueOnError: false
